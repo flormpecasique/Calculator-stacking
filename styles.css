@@ -1,7 +1,7 @@
 /* General styles */
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f9f9f9; /* Fondo claro estilo Stacks */
+    font-family: 'Inter', sans-serif; /* Usamos Inter, como en Stacks.co */
+    background-color: #f9f9f9;
     color: #333;
     margin: 0;
     padding: 0;
@@ -20,8 +20,10 @@ body {
 /* Title */
 h1 {
     text-align: center;
-    font-weight: 600;
+    font-weight: 700; /* Peso más fuerte para el título */
     color: #111;
+    font-size: 32px; /* Tamaño de título similar al de Stacks */
+    margin-bottom: 20px;
 }
 
 /* Form */
@@ -32,7 +34,7 @@ form {
 }
 
 label {
-    font-weight: 600;
+    font-weight: 400; /* Normal, sin negrita */
     font-size: 14px;
 }
 
@@ -47,7 +49,7 @@ input, select {
 }
 
 input:focus, select:focus {
-    border-color: #5F3DC4; /* Violeta de Stacks */
+    border-color: #5F3DC4;
     box-shadow: 0 0 5px rgba(95, 61, 196, 0.4);
 }
 
@@ -73,7 +75,7 @@ button {
 
 /* Table */
 .table-container {
-    overflow-x: auto; /* Permite desplazamiento horizontal en móviles */
+    overflow-x: auto;
 }
 
 table {
@@ -86,11 +88,11 @@ th, td {
     padding: 12px;
     border-bottom: 1px solid #ddd;
     text-align: left;
+    font-weight: 400; /* Peso normal para los textos de la tabla */
 }
 
 th {
     background-color: #F3F3F3;
-    font-weight: 600;
 }
 
 tr:hover {
@@ -116,7 +118,8 @@ footer {
     text-align: center;
     padding: 20px;
     font-size: 14px;
-    background-color: #1a1a1a;
-    color: white;
+    color: #666; /* Color más suave para el footer */
+    background-color: rgba(26, 26, 26, 0.5); /* Fondo con transparencia */
     margin-top: 40px;
+    font-weight: 400;
 }
