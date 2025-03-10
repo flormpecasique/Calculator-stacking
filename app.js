@@ -5,11 +5,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const comparisonTable = document.querySelector("#comparison-table tbody");
     const resetBtn = document.getElementById("reset-btn");
 
-    // Staking data
+    // Staking data (hemos quitado "binance-flexible")
     const stakingData = {
         stackingdao: { apy: 9.94, apr: null, duration: 14, payment: "STX", restrictions: "No minimum deposit" },
         xverse: { apy: 10, apr: null, duration: 14, payment: "Satoshis (BTC)", restrictions: "Minimum deposit: 100 STX" },
-        "binance-flexible": { apy: null, apr: 0.33, duration: "Flexible", payment: "STX", restrictions: "Minimum deposit: 0.1 STX" },
         "binance-30": { apy: null, apr: 2.1, duration: 30, payment: "Satoshis (BTC)", restrictions: "Locked staking" },
         "binance-60": { apy: null, apr: 2.8, duration: 60, payment: "Satoshis (BTC)", restrictions: "Locked staking" },
         "binance-90": { apy: null, apr: 3.99, duration: 90, payment: "Satoshis (BTC)", restrictions: "Locked staking" },
