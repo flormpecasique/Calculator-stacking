@@ -74,6 +74,22 @@ button {
     background-color: #4A2F9A;
 }
 
+/* Botón Reset */
+.secondary-btn {
+    background-color: #f4f4f4;
+    color: #5F3DC4;
+    border: 1px solid #ddd;
+}
+
+.secondary-btn:hover {
+    background-color: #e0e0e0;
+    color: #4A2F9A;
+}
+
+.secondary-btn:focus {
+    box-shadow: 0 0 5px rgba(95, 61, 196, 0.4);
+}
+
 /* Table */
 .table-container {
     overflow-x: auto;
@@ -121,5 +137,4 @@ footer {
     font-size: 14px;
     color: #999; /* Gris más claro para que no sea tan pesado visualmente */
     margin-top: 40px;
-    
 }
