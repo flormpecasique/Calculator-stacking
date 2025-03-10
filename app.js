@@ -81,12 +81,11 @@ document.addEventListener("DOMContentLoaded", function() {
     function isDuplicate(amount, provider) {
         const rows = comparisonTable.querySelectorAll("tr");
         for (const row of rows) {
-            const providerCell = row.querySelector("td:nth-child(1)").textContent;
-            const amountCell = row.querySelector("td:nth-child(3)").textContent;
+            const providerCell = row.querySelector("td:nth-child(1)").textContent.trim();
+            const amountCell = row.querySelector("td:nth-child(3)").textContent.trim();
 
-            // Comparar el monto y el proveedor sin formato
-            if (providerCell === capitalize(provider) && 
-                amountCell.includes(amount.toLocaleString(undefined, { minimumFractionDigits: 4, maximumFractionDigits: 4 }) + " STX")) {
+            // Compara el monto y proveedor de manera más exacta (sin formato)
+            if (providerCell === capitalize(provider) && parseFloat(amountCell) === amount) {
                 return true; // Ya existe, no agregar
             }
         }
