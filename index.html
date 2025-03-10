@@ -1,76 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Stacks Staking Comparison Tool</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STX Staking Comparison</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <h1>STX Staking Comparison Tool</h1>
+        <p>Compare staking options across platforms and maximize your STX earnings!</p>
+    </header>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="logo">
-      <h1>Stacks Staking Comparison</h1>
-    </div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+    <main>
+        <section id="staking-form-section">
+            <form id="staking-form">
+                <div class="input-group">
+                    <label for="amount">Amount of STX:</label>
+                    <input type="number" id="amount" name="amount" placeholder="Enter amount of STX" required>
+                </div>
+                <div class="input-group">
+                    <label for="provider">Choose a Staking Provider:</label>
+                    <select id="provider" name="provider" required>
+                        <option value="stackingdao">StackingDao</option>
+                        <option value="xverse">Xverse</option>
+                        <option value="binance">Binance</option>
+                    </select>
+                </div>
+                <button type="submit">Calculate</button>
+            </form>
+        </section>
 
-  <!-- Main Content -->
-  <main>
-    <section class="intro">
-      <h2>Compare Staking Providers</h2>
-      <p>Find the best way to stake your STX and maximize your rewards across platforms.</p>
-    </section>
+        <section id="results-section">
+            <h2>Comparison Results</h2>
+            <table id="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Provider</th>
+                        <th>Interest Rate</th>
+                        <th>Estimated Earnings</th>
+                        <th>Duration</th>
+                        <th>Restrictions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Results will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
 
-    <section class="calculator-section">
-      <h3>Calculate Your Rewards</h3>
-      <form id="staking-form">
-        <label for="amount">Amount (STX):</label>
-        <input type="number" id="amount" required>
-        
-        <label for="provider">Choose a Staking Provider:</label>
-        <select id="provider" required>
-          <option value="stackingdao">StackingDAO</option>
-          <option value="xverse">Xverse</option>
-          <option value="binance">Binance</option>
-        </select>
-        
-        <button type="submit">Calculate</button>
-      </form>
-    </section>
+    <footer>
+        <p>&copy; 2025 STX Staking Comparison Tool by flor.btc | All rights reserved.</p>
+    </footer>
 
-    <section class="comparison">
-      <h3>Comparison Results</h3>
-      <table id="comparison-table">
-        <thead>
-          <tr>
-            <th>Provider</th>
-            <th>APY / APR</th>
-            <th>Reward (STX)</th>
-            <th>Duration</th>
-            <th>Restrictions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Results will appear here -->
-        </tbody>
-      </table>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Stacks Staking Comparison. All Rights Reserved.</p>
-  </footer>
-
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
