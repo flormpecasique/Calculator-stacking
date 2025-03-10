@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #f5f4f9;
+    background-color: #f9f9f9;  /* Suave gris claro para un fondo limpio */
     color: #333;
     font-size: 16px;
     line-height: 1.6;
@@ -15,7 +15,7 @@ body {
 
 /* Encabezado */
 header {
-    background-color: #6a3ecf;  /* Violeta STX */
+    background-color: #5b2c6f;  /* Un violeta más suave */
     color: white;
     padding: 1rem 0;
     text-align: center;
@@ -40,7 +40,7 @@ header h1 {
     text-align: center;
     font-size: 1.7rem;
     margin-bottom: 1rem;
-    color: #6a3ecf; /* Violeta */
+    color: #5b2c6f;  /* Violeta suave */
 }
 
 label {
@@ -62,11 +62,11 @@ input, select {
 }
 
 input:focus, select:focus {
-    border-color: #6a3ecf;
+    border-color: #5b2c6f;  /* Violeta */
 }
 
 button {
-    background-color: #6a3ecf;
+    background-color: #5b2c6f;
     color: white;
     border: none;
     padding: 1rem;
@@ -78,7 +78,7 @@ button {
 }
 
 button:hover {
-    background-color: #5c2ea3;
+    background-color: #4b1f57;
 }
 
 /* Tabla de resultados */
@@ -103,7 +103,7 @@ th, td {
 }
 
 th {
-    background-color: #6a3ecf;
+    background-color: #5b2c6f;
     color: white;
     font-size: 1.2rem;
 }
@@ -114,12 +114,12 @@ td {
 
 /* Hover en filas */
 tr:hover {
-    background-color: #f0f0f5;
+    background-color: #f1f1f1;
 }
 
 /* Footer */
 footer {
-    background-color: #6a3ecf;
+    background-color: #5b2c6f;
     color: white;
     padding: 1rem 0;
     text-align: center;
