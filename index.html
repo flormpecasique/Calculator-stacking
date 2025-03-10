@@ -1,52 +1,57 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculadora de Staking STX</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparador de Staking STX</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="header">
-    <h1>Calculadora de Staking STX</h1>
-    <p>Compara el rendimiento de diferentes plataformas de staking de STX</p>
-  </header>
 
-  <main class="main">
-    <section class="form-section">
-      <h2>Introduce la cantidad de STX a apilar</h2>
-      <form id="staking-form">
-        <label for="amount">Cantidad de STX:</label>
-        <input type="number" id="amount" placeholder="Ejemplo: 100" required>
+    <header>
+        <h1>Comparador de Staking STX</h1>
+        <p>Compara las plataformas de Staking STX y calcula tus rendimientos estimados.</p>
+    </header>
 
-        <button type="submit">Calcular</button>
-      </form>
-    </section>
+    <main>
+        <form id="staking-form">
+            <label for="provider">Selecciona el Proveedor de Staking:</label>
+            <select id="provider" required>
+                <option value="stackingdao">StackingDAO</option>
+                <option value="binance">Binance</option>
+                <option value="xverse">Xverse</option>
+            </select>
 
-    <section class="results-section">
-      <h2>Resultados de la Comparativa</h2>
-      <table id="comparison-table">
-        <thead>
-          <tr>
-            <th>Plataforma</th>
-            <th>APY</th>
-            <th>Recompensas Estimadas</th>
-            <th>Duración Mínima</th>
-            <th>Restricciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Los resultados se llenarán dinámicamente con JS -->
-        </tbody>
-      </table>
-    </section>
-  </main>
+            <label for="amount">Cantidad de STX:</label>
+            <input type="number" id="amount" placeholder="Ejemplo: 100" required>
 
-  <footer class="footer">
-    <p>Creado por <a href="https://github.com/flormpecasique/StxTracker">Flor Peña</a></p>
-  </footer>
+            <button type="submit">Calcular</button>
+        </form>
 
-  <script src="script.js"></script>
+        <section class="results-section">
+            <h2>Resultados de la Comparativa</h2>
+            <table id="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Plataforma</th>
+                        <th>APY</th>
+                        <th>Recompensas Estimadas</th>
+                        <th>Duración Mínima</th>
+                        <th>Restricciones</th>
+                        <th>Método de Pago</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Los resultados se llenarán dinámicamente con JS -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Comparador de Staking STX</p>
+    </footer>
+
+    <script src="app.js"></script>
 </body>
 </html>
