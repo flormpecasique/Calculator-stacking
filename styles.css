@@ -93,12 +93,14 @@ button {
 /* Table */
 .table-container {
     overflow-x: auto; /* Permite desplazamiento horizontal */
+    width: 100%;
 }
 
 table {
     width: 100%;
     margin-top: 20px;
     border-collapse: collapse;
+    table-layout: fixed; /* Ajuste de las columnas de manera automática */
 }
 
 th, td {
@@ -152,6 +154,7 @@ footer {
 @media (max-width: 768px) {
     .table-container {
         overflow-x: auto; /* Permite que la tabla se desplace horizontalmente */
+        padding: 10px; /* Añadimos un poco de padding para mejorar la visualización */
     }
 
     table {
@@ -159,6 +162,7 @@ footer {
         display: block;
         overflow-x: auto;
         white-space: nowrap; /* Evita el ajuste de texto */
+        max-width: 100%; /* Asegura que la tabla no se desborde */
     }
 
     th, td {
@@ -168,5 +172,11 @@ footer {
 
     th {
         text-align: left;
+    }
+
+    /* Para evitar que la tabla quede fuera de la pantalla */
+    .table-container {
+        max-width: 100%;
+        overflow-x: scroll;
     }
 }
