@@ -1,101 +1,180 @@
-/* Estilos Generales */
+/* Reset de estilos básicos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos generales */
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f7f6;
-    color: #333;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
 }
 
-header {
-    background-color: #00aaff;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
+/* Header */
+.header {
+  background-color: #2D3A4B;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
-h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+.header .logo h1 {
+  font-size: 2.5rem;
+  letter-spacing: 2px;
 }
 
-p {
-    font-size: 1.2em;
+.nav-links {
+  list-style-type: none;
+  margin-top: 10px;
 }
 
-main {
-    padding: 20px;
+.nav-links li {
+  display: inline;
+  margin: 0 15px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #F1C40F;
+}
+
+/* Main Section */
+.main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Intro */
+.intro {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.intro h2 {
+  font-size: 2rem;
+  color: #2D3A4B;
+}
+
+.intro p {
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 10px;
+}
+
+/* Formulario de cálculo */
+.calculator-section {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.calculator-section h3 {
+  font-size: 1.8rem;
+  color: #2D3A4B;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 form {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
 label {
-    margin: 10px 0 5px;
-    font-size: 1.1em;
+  font-size: 1rem;
+  color: #555;
 }
 
-select, input {
-    padding: 10px;
-    margin-bottom: 15px;
-    font-size: 1em;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+input, select {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+input:focus, select:focus {
+  border-color: #F1C40F;
 }
 
 button {
-    background-color: #00aaff;
-    color: white;
-    padding: 12px;
-    font-size: 1.1em;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-color: #F1C40F;
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #0088cc;
+  background-color: #F39C12;
 }
 
-/* Tabla de resultados */
-.results-section {
-    margin-top: 30px;
-    text-align: center;
+/* Tabla de Resultados */
+.comparison {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#comparison-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+.comparison table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-#comparison-table th, #comparison-table td {
-    padding: 12px;
-    border: 1px solid #ddd;
+.comparison th, .comparison td {
+  padding: 15px;
+  text-align: left;
 }
 
-#comparison-table th {
-    background-color: #00aaff;
-    color: white;
+.comparison th {
+  background-color: #2D3A4B;
+  color: white;
+  font-size: 1.1rem;
 }
 
-#comparison-table td {
-    text-align: center;
+.comparison td {
+  background-color: #f9f9f9;
+  color: #555;
+  font-size: 1rem;
 }
 
+.comparison tr:nth-child(even) td {
+  background-color: #f2f2f2;
+}
+
+.comparison td:first-child {
+  font-weight: bold;
+}
+
+/* Footer */
 footer {
-    text-align: center;
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    margin-top: 30px;
+  text-align: center;
+  margin-top: 40px;
+  color: #777;
+}
+
+footer p {
+  font-size: 0.9rem;
 }
