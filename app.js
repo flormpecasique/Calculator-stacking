@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const amountInput = document.getElementById("amount");
     const providerSelect = document.getElementById("provider");
     const comparisonTable = document.querySelector("#comparison-table tbody");
+    const resetBtn = document.getElementById("reset-btn");
 
     // Staking data
     const stakingData = {
@@ -23,12 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (isNaN(amount) || amount <= 0) {
             displayMessage("❌ Please enter a valid amount.", "error");
-            return;
-        }
-
-        // Limpiar la tabla solo si se selecciona "Reset" o se quiere vaciar
-        if (provider === "reset") {
-            comparisonTable.innerHTML = "";
             return;
         }
 
@@ -55,6 +50,11 @@ document.addEventListener("DOMContentLoaded", function() {
         `;
 
         comparisonTable.appendChild(row);
+    });
+
+    // Función para resetear la tabla
+    resetBtn.addEventListener("click", function() {
+        comparisonTable.innerHTML = "";
     });
 
     // Función para mostrar mensajes en pantalla
