@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #f9f9f9;  /* Suave gris claro para un fondo limpio */
+    background-color: #f4f4f9;  /* Fondo suave gris claro */
     color: #333;
     font-size: 16px;
     line-height: 1.6;
@@ -15,7 +15,7 @@ body {
 
 /* Encabezado */
 header {
-    background-color: #5b2c6f;  /* Un violeta más suave */
+    background-color: #4e1d7c;  /* Violeta más oscuro, menos invasivo */
     color: white;
     padding: 1rem 0;
     text-align: center;
@@ -40,7 +40,7 @@ header h1 {
     text-align: center;
     font-size: 1.7rem;
     margin-bottom: 1rem;
-    color: #5b2c6f;  /* Violeta suave */
+    color: #4e1d7c;  /* Violeta más suave */
 }
 
 label {
@@ -62,11 +62,11 @@ input, select {
 }
 
 input:focus, select:focus {
-    border-color: #5b2c6f;  /* Violeta */
+    border-color: #4e1d7c;  /* Violeta */
 }
 
 button {
-    background-color: #5b2c6f;
+    background-color: #4e1d7c;
     color: white;
     border: none;
     padding: 1rem;
@@ -78,7 +78,7 @@ button {
 }
 
 button:hover {
-    background-color: #4b1f57;
+    background-color: #3e1461;
 }
 
 /* Tabla de resultados */
@@ -97,29 +97,45 @@ table {
 }
 
 th, td {
-    padding: 1.2rem;
+    padding: 1rem;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
 th {
-    background-color: #5b2c6f;
+    background-color: #4e1d7c;
     color: white;
     font-size: 1.2rem;
+    text-align: center;
 }
 
 td {
     font-size: 1rem;
+    text-align: left;
+    padding: 1rem;
 }
 
-/* Hover en filas */
+td, th {
+    padding-right: 1.5rem;  /* Añadido un poco más de espacio a la derecha */
+}
+
+td:last-child, th:last-child {
+    padding-right: 1.5rem; /* Aseguramos que la última columna también tenga margen */
+}
+
+/* Ajustar el tamaño de los textos */
+td, th {
+    font-size: 1rem;
+}
+
+/* Mejorar el espaciado y alineación en la tabla */
 tr:hover {
     background-color: #f1f1f1;
 }
 
 /* Footer */
 footer {
-    background-color: #5b2c6f;
+    background-color: #4e1d7c;
     color: white;
     padding: 1rem 0;
     text-align: center;
@@ -128,4 +144,24 @@ footer {
 
 footer p {
     margin: 0;
+}
+
+/* Sección de Comparación - Alineación de las celdas de pago */
+td:nth-child(6), th:nth-child(6) {
+    text-align: center;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .form-section, .comparison-section {
+        padding: 1.5rem;
+    }
+
+    table {
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 0.8rem;
+    }
 }
