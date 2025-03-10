@@ -26,31 +26,36 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        // Obtener datos del proveedor
-        const { apy, apr, duration, payment, restrictions } = stakingData[provider];
-
-        // Calcular ganancias
-        let reward = 0;
-        if (apy) {
-            reward = (amount * (apy / 100)) / 365 * duration; // Cálculo basado en duración
-        } else if (apr && duration !== "Flexible") {
-            reward = (amount * (apr / 100)) / 365 * duration;
-        }
-
-        // Insertar resultados en la tabla
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${capitalize(provider)}</td>
-            <td>${apy ? `${apy}% APY` : `${apr}% APR`}</td>
-            <td>${reward.toLocaleString(undefined, { minimumFractionDigits: 4, maximumFractionDigits: 4 })} STX</td>
-            <td>${typeof duration === "number" ? duration + " days" : duration}</td>
-            <td>${payment}</td>
-            <td>${restrictions}</td>
-        `;
-
-        // Limpiar tabla antes de agregar nueva fila
+        // Limpiar tabla antes de agregar nuevos resultados
         comparisonTable.innerHTML = "";
-        comparisonTable.appendChild(row);
+
+        // Si se selecciona más de un proveedor (por ejemplo, con un selector múltiple), recorrerlo
+        const selectedProviders = Array.from(providerSelect.selectedOptions).map(option => option.value);
+
+        selectedProviders.forEach(provider => {
+            const { apy, apr, duration, payment, restrictions } = stakingData[provider];
+
+            // Calcular ganancias
+            let reward = 0;
+            if (apy) {
+                reward = (amount * (apy / 100)) / 365 * duration; // Cálculo basado en duración
+            } else if (apr && duration !== "Flexible") {
+                reward = (amount * (apr / 100)) / 365 * duration;
+            }
+
+            // Insertar resultados en la tabla
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${capitalize(provider)}</td>
+                <td>${apy ? `${apy}% APY` : `${apr}% APR`}</td>
+                <td>${reward.toLocaleString(undefined, { minimumFractionDigits: 4, maximumFractionDigits: 4 })} STX</td>
+                <td>${typeof duration === "number" ? duration + " days" : duration}</td>
+                <td>${payment}</td>
+                <td>${restrictions}</td>
+            `;
+
+            comparisonTable.appendChild(row);
+        });
     });
 
     // Función para mostrar mensajes en pantalla
