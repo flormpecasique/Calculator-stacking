@@ -1,167 +1,94 @@
-/* Estilos generales */
-* {
+/* Global Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f9fafc;
+    color: #333;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
 }
 
-body {
-    background-color: #f4f4f9;  /* Fondo suave gris claro */
-    color: #333;
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #5b3f98;
+}
+
+/* Form */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, select, button {
+    padding: 10px;
     font-size: 16px;
-    line-height: 1.6;
-}
-
-/* Encabezado */
-header {
-    background-color: #4e1d7c;  /* Violeta más oscuro, menos invasivo */
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-}
-
-/* Formulario */
-.form-section {
-    max-width: 600px;
-    margin: 2rem auto;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.form-section h2 {
-    text-align: center;
-    font-size: 1.7rem;
-    margin-bottom: 1rem;
-    color: #4e1d7c;  /* Violeta más suave */
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #555;
-}
-
-input, select {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1.2rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 1rem;
-    background-color: #f9f9f9;
-    transition: border-color 0.3s;
-}
-
-input:focus, select:focus {
-    border-color: #4e1d7c;  /* Violeta */
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 button {
-    background-color: #4e1d7c;
+    background-color: #5b3f98;
     color: white;
     border: none;
-    padding: 1rem;
-    width: 100%;
-    border-radius: 4px;
-    font-size: 1.1rem;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #3e1461;
+    background-color: #442f7a;
 }
 
-/* Tabla de resultados */
-.comparison-section {
-    max-width: 800px;
-    margin: 2rem auto;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
+/* Table */
 table {
     width: 100%;
+    margin-top: 20px;
     border-collapse: collapse;
 }
 
 th, td {
-    padding: 1rem;
-    text-align: left;
+    padding: 12px;
+    text-align: center;
     border-bottom: 1px solid #ddd;
 }
 
 th {
-    background-color: #4e1d7c;
+    background-color: #5b3f98;
     color: white;
-    font-size: 1.2rem;
-    text-align: center;
 }
 
-td {
-    font-size: 1rem;
-    text-align: left;
-    padding: 1rem;
+tr:nth-child(even) {
+    background-color: #f3f3f3;
 }
 
-td, th {
-    padding-right: 1.5rem;  /* Añadido un poco más de espacio a la derecha */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    table {
+        font-size: 14px;
+    }
 }
 
-td:last-child, th:last-child {
-    padding-right: 1.5rem; /* Aseguramos que la última columna también tenga margen */
-}
-
-/* Ajustar el tamaño de los textos */
-td, th {
-    font-size: 1rem;
-}
-
-/* Mejorar el espaciado y alineación en la tabla */
-tr:hover {
-    background-color: #f1f1f1;
-}
-
-/* Footer */
 footer {
-    background-color: #4e1d7c;
-    color: white;
-    padding: 1rem 0;
     text-align: center;
-    font-size: 0.9rem;
+    padding: 20px;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #1a1a1a;
+    margin-top: 40px;
 }
 
 footer p {
     margin: 0;
+    opacity: 0.7;
 }
 
-/* Sección de Comparación - Alineación de las celdas de pago */
-td:nth-child(6), th:nth-child(6) {
-    text-align: center;
-}
-
-/* Media Queries */
-@media (max-width: 768px) {
-    .form-section, .comparison-section {
-        padding: 1.5rem;
-    }
-
-    table {
-        font-size: 0.9rem;
-    }
-
-    th, td {
-        padding: 0.8rem;
-    }
-}
