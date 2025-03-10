@@ -1,73 +1,72 @@
-/* General Styles */
+/* General styles */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #0B0D11;
-    color: #FFFFFF;
+    background-color: #f9f9f9; /* Fondo claro estilo Stacks */
+    color: #333;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
 }
 
 /* Container */
 .container {
-    width: 90%;
     max-width: 800px;
-    text-align: center;
-    margin-top: 40px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
 }
 
 /* Title */
 h1 {
-    font-size: 28px;
+    text-align: center;
     font-weight: 600;
-    margin-bottom: 20px;
+    color: #111;
 }
 
 /* Form */
 form {
-    background: #15171D;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
 label {
-    display: block;
-    margin-top: 15px;
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 input, select {
-    width: 100%;
     padding: 10px;
-    margin-top: 5px;
-    border-radius: 6px;
-    border: 1px solid #444857;
-    background-color: #1E2029;
-    color: #FFFFFF;
     font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.2s;
 }
 
-/* Button */
+input:focus, select:focus {
+    border-color: #5F3DC4; /* Violeta de Stacks */
+}
+
+/* Buttons */
 button {
-    width: 100%;
     padding: 12px;
-    background: #5546FF;
-    color: white;
-    border: none;
     font-size: 16px;
     font-weight: 600;
-    margin-top: 20px;
-    border-radius: 6px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    border-radius: 6px;
+    border: none;
+    transition: 0.3s ease-in-out;
 }
 
-button:hover {
-    background: #6A5CFF;
+.primary-btn {
+    background-color: #5F3DC4;
+    color: #fff;
+}
+
+.primary-btn:hover {
+    background-color: #4A2F9A;
 }
 
 /* Table */
@@ -75,31 +74,21 @@ table {
     width: 100%;
     margin-top: 20px;
     border-collapse: collapse;
-    background: #15171D;
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-thead {
-    background: #1E2029;
 }
 
 th, td {
     padding: 12px;
-    text-align: center;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
 }
 
 th {
+    background-color: #F3F3F3;
     font-weight: 600;
-    font-size: 14px;
 }
 
-tbody tr {
-    border-bottom: 1px solid #444857;
-}
-
-tbody tr:last-child {
-    border-bottom: none;
+tr:hover {
+    background-color: #F8F8F8;
 }
 
 /* Footer */
@@ -107,13 +96,8 @@ footer {
     text-align: center;
     padding: 20px;
     font-size: 14px;
-    color: #AAAAAA;
-    background-color: #15171D;
-    width: 100%;
+    color: #666;
+    background-color: #1a1a1a;
     margin-top: 40px;
-}
-
-footer p {
-    margin: 0;
-    opacity: 0.7;
+    color: white;
 }
