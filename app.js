@@ -84,8 +84,12 @@ document.addEventListener("DOMContentLoaded", function() {
             const providerCell = row.querySelector("td:nth-child(1)").textContent;
             const amountCell = row.querySelector("td:nth-child(3)").textContent;
 
+            // Convertimos ambos valores a un número para comparar correctamente
+            const rowAmount = parseFloat(amountCell.replace(" STX", "").replace(",", ""));
+            const inputAmount = parseFloat(amount);
+
             // Compara monto y proveedor para evitar duplicados
-            if (providerCell === capitalize(provider) && amountCell === `${amount.toLocaleString()} STX`) {
+            if (providerCell === capitalize(provider) && rowAmount === inputAmount) {
                 return true; // Ya existe, no agregar
             }
         }
