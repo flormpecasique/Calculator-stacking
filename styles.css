@@ -43,10 +43,12 @@ input, select {
     border-radius: 6px;
     outline: none;
     transition: 0.2s;
+    cursor: pointer;
 }
 
 input:focus, select:focus {
     border-color: #5F3DC4; /* Violeta de Stacks */
+    box-shadow: 0 0 5px rgba(95, 61, 196, 0.4);
 }
 
 /* Buttons */
@@ -70,6 +72,10 @@ button {
 }
 
 /* Table */
+.table-container {
+    overflow-x: auto; /* Permite desplazamiento horizontal en móviles */
+}
+
 table {
     width: 100%;
     margin-top: 20px;
@@ -91,6 +97,7 @@ tr:hover {
     background-color: #F8F8F8;
 }
 
+/* Messages */
 .message {
     margin-top: 10px;
     padding: 10px;
@@ -104,14 +111,12 @@ tr:hover {
     color: #d32f2f;
 }
 
-
 /* Footer */
 footer {
     text-align: center;
     padding: 20px;
     font-size: 14px;
-    color: #666;
     background-color: #1a1a1a;
-    margin-top: 40px;
     color: white;
+    margin-top: 40px;
 }
