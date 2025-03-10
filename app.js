@@ -84,12 +84,12 @@ document.addEventListener("DOMContentLoaded", function() {
             const providerCell = row.querySelector("td:nth-child(1)").textContent.trim();
             const amountCell = row.querySelector("td:nth-child(3)").textContent.trim();
 
-            // Compara el monto y proveedor directamente, sin formatear el monto
-            const rowAmount = parseFloat(amountCell); // Asegúrate de convertir el monto de la tabla a número
-            if (providerCell === capitalize(provider) && rowAmount === amount) {
+            // Compara monto y proveedor para evitar duplicados
+            if (providerCell === capitalize(provider) && amountCell === `${amount.toLocaleString()} STX`) {
                 return true; // Ya existe, no agregar
             }
         }
         return false; // No existe, agregar nuevo
     }
 });
+
