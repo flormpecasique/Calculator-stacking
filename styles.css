@@ -121,5 +121,5 @@ footer {
     color: #999; /* Gris más claro para que no sea tan pesado visualmente */
     background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con algo de transparencia */
     margin-top: 40px;
-    border-top: 1px solid #eee; /* Línea sutil arriba del footer para separar */
+    
 }
