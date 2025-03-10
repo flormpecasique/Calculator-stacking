@@ -3,72 +3,50 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Stacks Staking Comparison Tool</title>
+  <title>STX Staking Calculator</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-  <!-- Header -->
-  <header class="header">
-    <div class="logo">
-      <h1>Stacks Staking Comparison</h1>
-    </div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
+  <header>
+    <h1>STX Staking Calculator</h1>
   </header>
 
-  <!-- Main Content -->
-  <main>
-    <section class="intro">
-      <h2>Compare Staking Providers</h2>
-      <p>Find the best way to stake your STX and maximize your rewards across platforms.</p>
-    </section>
+  <section class="form-section">
+    <h2>Calculate Your Earnings</h2>
+    <form id="staking-form">
+      <label for="amount">Amount (STX)</label>
+      <input type="number" id="amount" min="0.1" step="0.1" placeholder="Enter amount in STX" required>
 
-    <section class="calculator-section">
-      <h3>Calculate Your Rewards</h3>
-      <form id="staking-form">
-        <label for="amount">Amount (STX):</label>
-        <input type="number" id="amount" required>
-        
-        <label for="provider">Choose a Staking Provider:</label>
-        <select id="provider" required>
-          <option value="stackingdao">StackingDAO</option>
-          <option value="xverse">Xverse</option>
-          <option value="binance">Binance</option>
-        </select>
-        
-        <button type="submit">Calculate</button>
-      </form>
-    </section>
+      <label for="provider">Select Provider</label>
+      <select id="provider" required>
+        <option value="stackingdao">StackingDAO</option>
+        <option value="xverse">Xverse</option>
+        <option value="binance">Binance</option>
+      </select>
 
-    <section class="comparison">
-      <h3>Comparison Results</h3>
-      <table id="comparison-table">
-        <thead>
-          <tr>
-            <th>Provider</th>
-            <th>APY / APR</th>
-            <th>Reward (STX)</th>
-            <th>Duration</th>
-            <th>Restrictions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Results will appear here -->
-        </tbody>
-      </table>
-    </section>
-  </main>
+      <button type="submit">Calculate Earnings</button>
+    </form>
+  </section>
 
-  <!-- Footer -->
+  <section class="comparison-section">
+    <h2>Staking Comparison</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Provider</th>
+          <th>APY/APR</th>
+          <th>Estimated Reward (14 days)</th>
+          <th>Duration</th>
+          <th>Restrictions</th>
+        </tr>
+      </thead>
+      <tbody id="comparison-table">
+      </tbody>
+    </table>
+  </section>
+
   <footer>
-    <p>&copy; 2025 Stacks Staking Comparison. All Rights Reserved.</p>
+    <p>&copy; 2025 STX Staking Calculator | All Rights Reserved</p>
   </footer>
 
   <script src="app.js"></script>
