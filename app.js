@@ -84,8 +84,9 @@ document.addEventListener("DOMContentLoaded", function() {
             const providerCell = row.querySelector("td:nth-child(1)").textContent.trim();
             const amountCell = row.querySelector("td:nth-child(3)").textContent.trim();
 
-            // Compara el monto y proveedor de manera más exacta (sin formato)
-            if (providerCell === capitalize(provider) && parseFloat(amountCell) === amount) {
+            // Compara el monto y proveedor directamente, sin formatear el monto
+            const rowAmount = parseFloat(amountCell); // Asegúrate de convertir el monto de la tabla a número
+            if (providerCell === capitalize(provider) && rowAmount === amount) {
                 return true; // Ya existe, no agregar
             }
         }
