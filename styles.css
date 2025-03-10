@@ -116,6 +116,15 @@ tr:hover {
     background-color: #F8F8F8;
 }
 
+/* Add alternate row colors for readability */
+tr:nth-child(odd) {
+    background-color: #F9F9F9;
+}
+
+tr:nth-child(even) {
+    background-color: #FFFFFF;
+}
+
 /* Messages */
 .message {
     margin-top: 10px;
