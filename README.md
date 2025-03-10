@@ -1,1 +1,1 @@
-# calculator-
+A simple web application to compare STX staking options across different providers. This tool allows users to enter the amount of STX they wish to stake and select a provider from options like StackingDAO, Xverse, and Binance. The application fetches live data from respective providers to calculate estimated earnings based on APR/APY, staking duration, and restrictions. It's a quick way to assess the best staking opportunities for STX holders.
