@@ -118,8 +118,8 @@ footer {
     text-align: center;
     padding: 20px;
     font-size: 14px;
-    color: #666; /* Color más suave para el footer */
-    background-color: rgba(26, 26, 26, 0.5); /* Fondo con transparencia */
+    color: #999; /* Gris más claro para que no sea tan pesado visualmente */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con algo de transparencia */
     margin-top: 40px;
-    font-weight: 400;
+    border-top: 1px solid #eee; /* Línea sutil arriba del footer para separar */
 }
