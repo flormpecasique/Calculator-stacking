@@ -1,126 +1,42 @@
-/* Estilos generales */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-body {
-    background-color: #f4f4f9;
-    color: #333;
-    font-size: 16px;
-    line-height: 1.6;
-}
-
-header {
-    background-color: #4caf50;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-/* Formulario */
-.form-section {
-    max-width: 600px;
-    margin: 2rem auto;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form-section h2 {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
-
-input, select {
-    width: 100%;
-    padding: 0.8rem;
-    margin-bottom: 1.2rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 1rem;
-}
-
-input[type="number"] {
-    -moz-appearance: textfield;
-}
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+/* Estilo básico para la interfaz */
+#provider, #amount {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 button {
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    padding: 1rem;
-    width: 100%;
-    border-radius: 4px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  padding: 10px 20px;
+  background-color: #00aaff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 button:hover {
-    background-color: #45a049;
+  background-color: #0077cc;
 }
 
-/* Tabla de resultados */
-.comparison-section {
-    max-width: 800px;
-    margin: 2rem auto;
-    background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+#comparison-table th {
+  background-color: #00aaff;
+  color: white;
+  padding: 12px;
+}
+
+#comparison-table td {
+  padding: 10px;
+  text-align: center;
+}
+
+.results-section {
+  margin-top: 30px;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-th, td {
-    padding: 1rem;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-}
-
-th {
-    background-color: #4caf50;
-    color: white;
-}
-
-td {
-    font-size: 1rem;
-}
-
-/* Footer */
-footer {
-    background-color: #4caf50;
-    color: white;
-    padding: 1rem 0;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-footer p {
-    margin: 0;
+  width: 100%;
+  border-collapse: collapse;
 }
