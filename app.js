@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const comparisonTable = document.querySelector("#comparison-table tbody");
     const resetBtn = document.getElementById("reset-btn");
 
-    // Staking data (hemos quitado "binance-flexible")
+    // Staking data (sin "binance-flexible")
     const stakingData = {
         stackingdao: { apy: 9.94, apr: null, duration: 14, payment: "STX", restrictions: "No minimum deposit" },
-        xverse: { apy: 10, apr: null, duration: 14, payment: "Satoshis (BTC)", restrictions: "Minimum deposit: 100 STX. Locked staking" },
+        xverse: { apy: 10, apr: null, duration: 14, payment: "Satoshis (BTC)", restrictions: "Minimum deposit: 100 STX" },
         "binance-30": { apy: null, apr: 2.1, duration: 30, payment: "Satoshis (BTC)", restrictions: "Locked staking" },
         "binance-60": { apy: null, apr: 2.8, duration: 60, payment: "Satoshis (BTC)", restrictions: "Locked staking" },
         "binance-90": { apy: null, apr: 3.99, duration: 90, payment: "Satoshis (BTC)", restrictions: "Locked staking" },
@@ -23,6 +23,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (isNaN(amount) || amount <= 0) {
             displayMessage("❌ Please enter a valid amount.", "error");
+            return;
+        }
+
+        // Comprobar si ya existe una fila con el mismo monto y proveedor
+        if (isDuplicate(amount, provider)) {
+            displayMessage("❌ This combination of amount and provider has already been added.", "error");
             return;
         }
 
@@ -69,5 +75,20 @@ document.addEventListener("DOMContentLoaded", function() {
     // Función para capitalizar nombres de proveedores
     function capitalize(string) {
         return string.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
+    }
+
+    // Función para verificar si ya existe una fila con el mismo monto y proveedor
+    function isDuplicate(amount, provider) {
+        const rows = comparisonTable.querySelectorAll("tr");
+        for (const row of rows) {
+            const providerCell = row.querySelector("td:nth-child(1)").textContent;
+            const amountCell = row.querySelector("td:nth-child(3)").textContent;
+
+            // Compara monto y proveedor para evitar duplicados
+            if (providerCell === capitalize(provider) && amountCell === `${amount.toLocaleString()} STX`) {
+                return true; // Ya existe, no agregar
+            }
+        }
+        return false; // No existe, agregar nuevo
     }
 });
