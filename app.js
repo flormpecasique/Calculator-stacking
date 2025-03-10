@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
-  // Obtener los elementos del DOM
   const stakingForm = document.getElementById("staking-form");
   const amountInput = document.getElementById("amount");
   const providerSelect = document.getElementById("provider");
-  const comparisonTable = document.getElementById("comparison-table").getElementsByTagName("tbody")[0];
+  const comparisonTable = document.getElementById("comparison-table");
 
   // Tasas de interés y parámetros por proveedor
   const stakingData = {
@@ -12,21 +11,21 @@ document.addEventListener("DOMContentLoaded", function() {
       apr: null,
       duration: "2 weeks",
       restrictions: "No minimum deposit",
-      paymentMethod: "Paid in STX"
+      paymentMethod: "Directly to your StackingDAO wallet"
     },
     xverse: {
       apy: "10%",
       apr: null,
       duration: "2 weeks",
       restrictions: "Minimum deposit: 100 STX",
-      paymentMethod: "Paid in Satoshis"
+      paymentMethod: "Transferred to your Xverse wallet"
     },
     binance: {
       apy: null,
       apr: "0.33% per day",
       duration: "Flexible",
       restrictions: "Minimum deposit: 0.1 STX",
-      paymentMethod: "Paid in STX"
+      paymentMethod: "Transferred to your Binance account"
     }
   };
 
@@ -34,7 +33,6 @@ document.addEventListener("DOMContentLoaded", function() {
   stakingForm.addEventListener("submit", function(event) {
     event.preventDefault();
 
-    // Obtener los valores del formulario
     const amount = parseFloat(amountInput.value);
     const provider = providerSelect.value;
 
@@ -51,7 +49,6 @@ document.addEventListener("DOMContentLoaded", function() {
     if (apy) {
       reward = (amount * parseFloat(apy) / 100) / 365 * 14; // para 2 semanas
     } else if (apr) {
-      // Calculamos el rendimiento basado en APR de Binance
       reward = (amount * parseFloat(apr.replace("%", "")) / 100) * 14; // 14 días
     }
 
