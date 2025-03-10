@@ -3,13 +3,12 @@ document.addEventListener("DOMContentLoaded", function() {
     const amountInput = document.getElementById("amount");
     const providerSelect = document.getElementById("provider");
     const comparisonTable = document.querySelector("#comparison-table tbody");
-    const resetBtn = document.getElementById("reset-btn");
 
     // Staking data
     const stakingData = {
-        stackingdao: { apy: 9.94, apr: null, duration: 14, payment: "STX", restrictions: "No minimum deposit" },
+        stackingdao: { apy: 9.94, apr: null, duration: 14, payment: "STX", restrictions: "No minimum deposit", isCompounded: true },
         xverse: { apy: 10, apr: null, duration: 14, payment: "Satoshis (BTC)", restrictions: "Minimum deposit: 100 STX" },
-        "binance-flexible": { apy: null, apr: 0.33, duration: "Flexible", payment: "STX", restrictions: "Minimum deposit: 0.1 STX" },
+        "binance-flexible": { apy: 0.33, apr: null, duration: "Flexible", payment: "STX", restrictions: "Minimum deposit: 0.1 STX" },
         "binance-30": { apy: null, apr: 2.1, duration: 30, payment: "Satoshis (BTC)", restrictions: "Locked staking" },
         "binance-60": { apy: null, apr: 2.8, duration: 60, payment: "Satoshis (BTC)", restrictions: "Locked staking" },
         "binance-90": { apy: null, apr: 3.99, duration: 90, payment: "Satoshis (BTC)", restrictions: "Locked staking" },
@@ -28,13 +27,19 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Obtener datos del proveedor
-        const { apy, apr, duration, payment, restrictions } = stakingData[provider];
+        const { apy, apr, duration, payment, restrictions, isCompounded } = stakingData[provider];
 
         // Calcular ganancias
         let reward = 0;
-        if (apy) {
-            reward = (amount * (apy / 100)) / 365 * duration; // Cálculo basado en duración
-        } else if (apr && duration !== "Flexible") {
+        if (apy && isCompounded) {
+            // Fórmula de interés compuesto (compounded)
+            let rate = apy / 100;
+            let time = duration / 365;  // Convertir duración a años
+            reward = amount * Math.pow(1 + rate, time) - amount; // Fórmula del interés compuesto
+        } else if (apy) {
+            // Cálculo simple para APR (ejemplo de Binance flexible)
+            reward = (amount * (apy / 100)) / 365 * (duration === "Flexible" ? 30 : duration); // Ajustado para 30 días si es flexible
+        } else if (apr) {
             reward = (amount * (apr / 100)) / 365 * duration;
         }
 
@@ -49,12 +54,9 @@ document.addEventListener("DOMContentLoaded", function() {
             <td>${restrictions}</td>
         `;
 
-        comparisonTable.appendChild(row);
-    });
-
-    // Función para resetear la tabla
-    resetBtn.addEventListener("click", function() {
+        // Limpiar tabla antes de agregar nueva fila
         comparisonTable.innerHTML = "";
+        comparisonTable.appendChild(row);
     });
 
     // Función para mostrar mensajes en pantalla
