@@ -1,76 +1,87 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const stakingForm = document.getElementById("staking-form");
-    const amountInput = document.getElementById("amount");
-    const providerSelect = document.getElementById("provider");
-    const comparisonTable = document.querySelector("#comparison-table tbody");
+document.getElementById('staking-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevenir envío del formulario
 
-    // Staking data
-    const stakingData = {
-        stackingdao: { apy: 9.94, apr: null, duration: 14, payment: "STX", restrictions: "No minimum deposit", isCompounded: true },
-        xverse: { apy: 10, apr: null, duration: 14, payment: "Satoshis (BTC)", restrictions: "Minimum deposit: 100 STX" },
-        "binance-flexible": { apy: 0.33, apr: null, duration: "Flexible", payment: "STX", restrictions: "Minimum deposit: 0.1 STX" },
-        "binance-30": { apy: null, apr: 2.1, duration: 30, payment: "Satoshis (BTC)", restrictions: "Locked staking" },
-        "binance-60": { apy: null, apr: 2.8, duration: 60, payment: "Satoshis (BTC)", restrictions: "Locked staking" },
-        "binance-90": { apy: null, apr: 3.99, duration: 90, payment: "Satoshis (BTC)", restrictions: "Locked staking" },
-        "binance-120": { apy: null, apr: 5.0, duration: 120, payment: "Satoshis (BTC)", restrictions: "Locked staking" }
-    };
+    const amount = parseFloat(document.getElementById('amount').value);
+    const provider = document.getElementById('provider').value;
+    const tableBody = document.getElementById('comparison-table').querySelector('tbody');
 
-    stakingForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        const amount = parseFloat(amountInput.value);
-        const provider = providerSelect.value;
-
-        if (isNaN(amount) || amount <= 0) {
-            displayMessage("❌ Please enter a valid amount.", "error");
-            return;
-        }
-
-        // Obtener datos del proveedor
-        const { apy, apr, duration, payment, restrictions, isCompounded } = stakingData[provider];
-
-        // Calcular ganancias
-        let reward = 0;
-        if (apy && isCompounded) {
-            // Fórmula de interés compuesto (compounded)
-            let rate = apy / 100;
-            let time = duration / 365;  // Convertir duración a años
-            reward = amount * Math.pow(1 + rate, time) - amount; // Fórmula del interés compuesto
-        } else if (apy) {
-            // Cálculo simple para APR (ejemplo de Binance flexible)
-            reward = (amount * (apy / 100)) / 365 * (duration === "Flexible" ? 30 : duration); // Ajustado para 30 días si es flexible
-        } else if (apr) {
-            reward = (amount * (apr / 100)) / 365 * duration;
-        }
-
-        // Insertar resultados en la tabla
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${capitalize(provider)}</td>
-            <td>${apy ? `${apy}% APY` : `${apr}% APR`}</td>
-            <td>${reward.toLocaleString(undefined, { minimumFractionDigits: 4, maximumFractionDigits: 4 })} STX</td>
-            <td>${typeof duration === "number" ? duration + " days" : duration}</td>
-            <td>${payment}</td>
-            <td>${restrictions}</td>
-        `;
-
-        // Limpiar tabla antes de agregar nueva fila
-        comparisonTable.innerHTML = "";
-        comparisonTable.appendChild(row);
-    });
-
-    // Función para mostrar mensajes en pantalla
-    function displayMessage(message, type) {
-        const msgDiv = document.createElement("div");
-        msgDiv.textContent = message;
-        msgDiv.className = `message ${type}`;
-        stakingForm.appendChild(msgDiv);
-
-        setTimeout(() => msgDiv.remove(), 3000);
+    // Evitar que se repitan los resultados
+    if (Array.from(tableBody.rows).some(row => row.cells[0].innerText === provider)) {
+        alert("Results for this provider already displayed.");
+        return;
     }
 
-    // Función para capitalizar nombres de proveedores
-    function capitalize(string) {
-        return string.replace(/-/g, ' ').replace(/\b\w/g, char => char.toUpperCase());
+    // Llamada a la función de cálculo dependiendo de la plataforma seleccionada
+    let rewardData;
+    switch (provider) {
+        case 'stackingdao':
+            rewardData = calculateStackingDAO(amount);
+            break;
+        case 'xverse':
+            rewardData = calculateXverse(amount);
+            break;
+        case 'binance-flexible':
+            rewardData = calculateBinance(amount, 0.33); // 0.33% APR
+            break;
+        case 'binance-30':
+            rewardData = calculateBinance(amount, 0.5); // Ejemplo con otro APR
+            break;
+        case 'binance-60':
+            rewardData = calculateBinance(amount, 0.7); // Ejemplo con otro APR
+            break;
+        case 'binance-90':
+            rewardData = calculateBinance(amount, 0.9); // Ejemplo con otro APR
+            break;
+        case 'binance-120':
+            rewardData = calculateBinance(amount, 1); // Ejemplo con otro APR
+            break;
+        default:
+            rewardData = { apr: 0, apy: 0, reward: 0 };
     }
+
+    // Insertar los resultados en la tabla
+    const newRow = tableBody.insertRow();
+    newRow.innerHTML = `
+        <td>${provider}</td>
+        <td>${rewardData.apr}% / ${rewardData.apy}%</td>
+        <td>${rewardData.reward} STX</td>
+        <td>${rewardData.duration}</td>
+        <td>${rewardData.payment}</td>
+        <td>${rewardData.restrictions}</td>
+    `;
 });
+
+function calculateStackingDAO(amount) {
+    // Datos aproximados de StackingDAO para el ejemplo
+    const apr = 9.4; // APR de ejemplo
+    const apy = apr; // En este caso se asume el mismo APR y APY para simplificación
+    const reward = (amount * apr / 100) * 1; // Cálculo de rendimiento anual
+    const duration = "1 year"; // Duración de la inversión
+    const payment = "STX Compound"; // Pagos en STX compuesto
+    const restrictions = "None"; // Restricciones
+    
+    return { apr, apy, reward, duration, payment, restrictions };
+}
+
+function calculateXverse(amount) {
+    // Cálculos de ejemplo para Xverse, usa datos específicos si tienes
+    const apr = 7.0; // APR de ejemplo
+    const apy = apr;
+    const reward = (amount * apr / 100) * 1;
+    const duration = "1 year";
+    const payment = "STX Compound";
+    const restrictions = "None";
+    
+    return { apr, apy, reward, duration, payment, restrictions };
+}
+
+function calculateBinance(amount, apr) {
+    // Cálculos de ejemplo para Binance
+    const apy = apr; // Para Binance, se usa el APR proporcionado directamente
+    const reward = (amount * apr / 100) * 1; // Estimación de rendimiento anual
+    const duration = "Flexible"; // Duración flexible o con base en el plan
+    const payment = "STX Compound"; // Pagos en STX compuesto
+    const restrictions = "None"; // Restricciones
+    
+    return { apr, apy, reward, duration, payment, restrictions };
+}
