@@ -11,19 +11,22 @@ document.addEventListener("DOMContentLoaded", function() {
       apy: "9.94%",
       apr: null,
       duration: "2 weeks",
-      restrictions: "No minimum deposit"
+      restrictions: "No minimum deposit",
+      paymentMethod: "Paid in STX"
     },
     xverse: {
       apy: "10%",
       apr: null,
       duration: "2 weeks",
-      restrictions: "Minimum deposit: 100 STX"
+      restrictions: "Minimum deposit: 100 STX",
+      paymentMethod: "Paid in Satoshis"
     },
     binance: {
       apy: null,
       apr: "0.33% per day",
       duration: "Flexible",
-      restrictions: "Minimum deposit: 0.1 STX"
+      restrictions: "Minimum deposit: 0.1 STX",
+      paymentMethod: "Paid in STX"
     }
   };
 
@@ -48,6 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
     if (apy) {
       reward = (amount * parseFloat(apy) / 100) / 365 * 14; // para 2 semanas
     } else if (apr) {
+      // Calculamos el rendimiento basado en APR de Binance
       reward = (amount * parseFloat(apr.replace("%", "")) / 100) * 14; // 14 días
     }
 
@@ -59,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function() {
       <td>${reward.toFixed(4)} STX</td>
       <td>${stakingData[provider].duration}</td>
       <td>${stakingData[provider].restrictions}</td>
+      <td>${stakingData[provider].paymentMethod}</td>
     `;
   });
 
