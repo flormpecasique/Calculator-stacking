@@ -1,0 +1,112 @@
+/* General */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  background-color: #2b2b2b;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+.header h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.header p {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* Main Section */
+.main {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.form-section {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-section h2 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.form-section label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.form-section input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-section button {
+  background-color: #00aaff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 100%;
+}
+.form-section button:hover {
+  background-color: #0088cc;
+}
+
+/* Table */
+.results-section table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.results-section th, 
+.results-section td {
+  padding: 12px 20px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.results-section th {
+  background-color: #00aaff;
+  color: white;
+}
+
+.results-section tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Footer */
+.footer {
+  background-color: #2b2b2b;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+.footer a {
+  color: #00aaff;
+  text-decoration: none;
+}
