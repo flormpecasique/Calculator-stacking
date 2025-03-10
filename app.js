@@ -84,8 +84,9 @@ document.addEventListener("DOMContentLoaded", function() {
             const providerCell = row.querySelector("td:nth-child(1)").textContent;
             const amountCell = row.querySelector("td:nth-child(3)").textContent;
 
-            // Compara monto y proveedor para evitar duplicados
-            if (providerCell === capitalize(provider) && amountCell === `${amount.toLocaleString()} STX`) {
+            // Comparar el monto y el proveedor sin formato
+            if (providerCell === capitalize(provider) && 
+                amountCell.includes(amount.toLocaleString(undefined, { minimumFractionDigits: 4, maximumFractionDigits: 4 }) + " STX")) {
                 return true; // Ya existe, no agregar
             }
         }
