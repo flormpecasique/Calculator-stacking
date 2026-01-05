@@ -46,7 +46,6 @@ This calculator helps users understand **potential earnings** without complicate
 3. Select the number of **stacking cycles**  
 4. View your **estimated rewards**
 
-> 📝 If there’s a live deployment link, insert it here!
 
 ---
 
