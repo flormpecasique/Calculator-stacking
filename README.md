@@ -41,7 +41,7 @@ This calculator helps users understand **potential earnings** without complicate
 
 ## 📥 How to Use
 
-1. Open the live page (if hosted)  
+1. Go to the live site: https://calculator-stacking.vercel.app/
 2. Enter the amount of **STX** you plan to stack  
 3. Select the number of **stacking cycles**  
 4. View your **estimated rewards**
