@@ -39,6 +39,15 @@ This calculator helps users understand **potential earnings** without complicate
 
 ---
 
+## 🔐 Security Considerations
+
+- No private keys are stored
+- No wallet connection required
+- Public read-only APIs
+- User input validation
+
+---
+
 ## 📥 How to Use
 
 1. Go to the live site: https://calculator-stacking.vercel.app/
